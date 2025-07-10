@@ -2,6 +2,12 @@
 
 A modern full-stack stock prediction application powered by LSTM deep learning models. Tensera provides real-time stock data, AI-powered predictions, and comprehensive market analysis tools.
 
+## 🚀 Live Demo
+
+**Try Tensera now**: [https://tensera.netlify.app/](https://tensera.netlify.app/)
+
+*Experience the AI-powered stock prediction dashboard with real-time data and LSTM-based forecasting.*
+
 ## Features
 
 - 🤖 **LSTM-powered predictions** - Advanced deep learning model for accurate stock price forecasting
@@ -188,6 +194,10 @@ python train_lstm_model.py
 5. **Model Export**: Saves trained model and preprocessing pipeline
 
 ## Deployment
+
+### 🌐 Live Demo
+
+Tensera is already deployed and live at: **[https://tensera.netlify.app/](https://tensera.netlify.app/)**
 
 ### Frontend Deployment
 
