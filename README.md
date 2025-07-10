@@ -105,6 +105,11 @@ Tensera/
 │   ├── requirements.txt    # Python dependencies
 │   ├── Dockerfile          # Backend containerization
 │   └── test_*.py          # Test files
+├── training/               # Machine learning model training
+│   ├── train_lstm_model.py # LSTM model training script
+│   ├── model_config.json   # Model configuration and metadata
+│   ├── stock_lstm_model.pth # Trained PyTorch model weights
+│   └── preprocessing_objects.pkl # Trained preprocessing pipeline
 ├── src/                    # React frontend source
 │   ├── components/         # React components
 │   │   ├── StockDashboard/ # Main dashboard
@@ -150,6 +155,37 @@ curl -X POST "http://localhost:8000/stock-info" \
      -H "Content-Type: application/json" \
      -d '{"symbol": "MSFT"}'
 ```
+
+## Model Training
+
+The LSTM model is pre-trained on 36 major stock symbols with advanced technical indicators. You can retrain the model with your own data:
+
+### Training Features
+- **Data Sources**: 36 major stocks (AAPL, MSFT, GOOGL, etc.)
+- **Technical Indicators**: 41 features including SMA, EMA, MACD, RSI, Bollinger Bands
+- **Model Architecture**: 2-layer LSTM with 64 hidden units and dropout
+- **Sequence Length**: 60 days of historical data
+- **Training Samples**: 59,436 sequences
+
+### Retrain the Model
+
+```bash
+cd training
+python train_lstm_model.py
+```
+
+### Model Files
+- `stock_lstm_model.pth` - Trained PyTorch model weights
+- `model_config.json` - Model architecture and training metadata
+- `preprocessing_objects.pkl` - Fitted scalers and preprocessors
+- `train_lstm_model.py` - Complete training pipeline
+
+### Training Process
+1. **Data Collection**: Fetches historical data via Yahoo Finance
+2. **Feature Engineering**: Creates 41 technical indicators
+3. **Preprocessing**: Normalizes data and creates sequences
+4. **Model Training**: Multi-layer LSTM with early stopping
+5. **Model Export**: Saves trained model and preprocessing pipeline
 
 ## Deployment
 
